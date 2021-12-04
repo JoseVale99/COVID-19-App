@@ -19,7 +19,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             Tabla de datos actualizados de la enfermedad que acontece 
-                            en la actualidad SARS-COVID 19, datos que corresponden a 150 municipios localizados 
+                            en la actualidad SARS-COVID 19, datos que corresponden a 570 municipios localizados 
                             en el estado de Oaxaca, mismos que se obtuvieron de 
                             <a target="_blank"
                              href="https://datamexico.org/api/data.jsonrecords?cube=gobmx_covid_stats_mun&drilldowns=Municipality&measures=Accum+Cases,Daily+Cases,AVG+7+Days+Accum+Cases,AVG+7+Days+Daily+Cases,Rate+Daily+Cases,Rate+Accum+Cases,Days+from+50+Cases&s=Daily%20New%20Cases&r=rollingMeanOption&locale=es&time=time.latest&State=20">datos México.</a>
