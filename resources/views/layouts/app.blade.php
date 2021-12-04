@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>  @yield('titulo','main')  </title>
-    {{-- <link rel="shortcut icon" href=""> --}}
+    <title>  @yield('titulo','main')</title>
+    <link rel="shortcut icon" href="https://cdn-icons.flaticon.com/png/512/3214/premium/3214036.png?token=exp=1638615281~hmac=b56fdc66c45fe1f2a9fa02587aa74c49">
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
