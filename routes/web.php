@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[DashboardController::class,'index'])->name('data.index');
+Route::get('/DataCovid',[DashboardController::class,'getData'])->name('data.table');
+Route::get('/DataCovidStates',[DashboardController::class,'getDataStates'])->name('data.states');
+
+
+
