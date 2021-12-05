@@ -25,19 +25,24 @@ class DashboardController extends Controller
         $response_states = $client->request('GET', $url_states, [
             'verify'  => false,
         ]);
+        $response_mun = $client->request('GET', $this->CASES_COVID_MUNICIPALITY, [
+            'verify'  => false,
+        ]);
         $result_covid = json_decode($response->getBody(), true);
         $covid_states = json_decode($response_states->getBody(), true);
+        $cases_mun = json_decode($response_mun->getBody(), true);
         $covid_oaxaca_cases = $covid_states["data"]["19"];
-       
+        $covid_mx_cases = $covid_states["data"]["8"];
+       $cases_data_juq = $cases_mun["data"][343];
         foreach($covid_states["data"] as $data){ 
              $states [] = $data["State"] ;
              $cases_covid_values [] = $data["Cases"];
         }
         
-        // dd(json_encode($cases_covid_values,JSON_NUMERIC_CHECK));
+        
 
         
-        return view('app.index',compact('result_covid','covid_oaxaca_cases'))
+        return view('app.index',compact('result_covid','covid_oaxaca_cases','covid_mx_cases', 'cases_data_juq'))
         ->with('states',json_encode($states,JSON_NUMERIC_CHECK))
         ->with('cases',json_encode($cases_covid_values,JSON_NUMERIC_CHECK));
     }
