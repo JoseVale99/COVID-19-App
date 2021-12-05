@@ -72,7 +72,7 @@
                             <div class="card mb-12">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                   Casos positivos por estado
+                                   Casos positivos de COVID por estado
                                 </div>
                                 <div class="card-body"><canvas id="myChart" width="100%" height="40"></canvas>
                                 </div>
@@ -97,19 +97,20 @@
         </div>
     </div>
     <script>
-        var dias = <?php echo $states; ?>;
-        var total = <?php echo $cases; ?>;
+        var states = <?php echo $states; ?>;
+        var cases = <?php echo $cases; ?>;
        
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: dias,
+                labels: states,
                 
                 datasets: [{
-                    label: ' • Ingresos por días',
-                    data: total,
+                    label: ' • Casos Positivos',
+                    data: cases,
                     backgroundColor: [
+                        "#FE3A3A",
                         'rgb(57,101, 202)',
                         '#299BC2',
                          "#F16F1B",
