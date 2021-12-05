@@ -2,7 +2,7 @@
 @section('titulo', 'Dashboard')
 @section('contenido')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"> </script>
 
 
     {{-- adding nav bar horizontal --}}
@@ -68,18 +68,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
+                        <div class="col-xl-12">
+                            <div class="card mb-12">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    Area Chart Example
+                                   Casos positivos por estado
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
+                                <div class="card-body"><canvas id="myChart" width="100%" height="40"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
+                        <div class="col-xl-12">
+                            <div class="card mb-12">
                                 <div class="card-header">
                                     <i class="fas fa-chart-bar me-1"></i>
                                     Bar Chart Example
@@ -96,4 +96,49 @@
 
         </div>
     </div>
+    <script>
+        var dias = <?php echo $states; ?>;
+        var total = <?php echo $cases; ?>;
+       
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: dias,
+                
+                datasets: [{
+                    label: ' • Ingresos por días',
+                    data: total,
+                    backgroundColor: [
+                        'rgb(57,101, 202)',
+                        '#299BC2',
+                         "#F16F1B",
+                         "#DE0909",
+                        '#208A73',
+                        "#E29A1C",
+                        "#7C8081"
+                    ],
+                    borderColor: [
+                        'rgba(255, 255, 255, 255)'  
+                    ],
+                    borderWidth: 2
+                }]
+                
+                 
+                
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                       
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    
 @endsection
