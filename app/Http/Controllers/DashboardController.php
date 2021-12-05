@@ -28,8 +28,18 @@ class DashboardController extends Controller
         $result_covid = json_decode($response->getBody(), true);
         $covid_states = json_decode($response_states->getBody(), true);
         $covid_oaxaca_cases = $covid_states["data"]["19"];
-    
-        return view('app.index',compact('result_covid','covid_oaxaca_cases'));
+       
+        foreach($covid_states["data"] as $data){ 
+             $states [] = $data["State"] ;
+             $cases_covid_values [] = $data["Cases"];
+        }
+        
+        // dd(json_encode($cases_covid_values,JSON_NUMERIC_CHECK));
+
+        
+        return view('app.index',compact('result_covid','covid_oaxaca_cases'))
+        ->with('states',json_encode($states,JSON_NUMERIC_CHECK))
+        ->with('cases',json_encode($cases_covid_values,JSON_NUMERIC_CHECK));
     }
 
 
